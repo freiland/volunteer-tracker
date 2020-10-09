@@ -13,30 +13,30 @@
 
 
 
-<form action="/projects/<%= @project.id() %>" method="post">
-  <input name="_method" type="hidden" value="patch">    
+<form action="/projects/<%= @project.id()%>" method="post">
+     
 
-  <label for="name">add a volunteer to this project: </label>
-  <input id="name" name="name" type="text">
+  <label for="volunteer_name">add a volunteer to this project: </label>
+  <input id="volunteer_name" name="volunteer_name" type="text">
 
   <button type="submit">add</button>
 </form>
 
-<h3> volunteer list: </h3><br><br><br><br>
+<h3> volunteer list: </h3>
 
 <% if @project.volunteers %>
     <ul>
       <% @project.volunteers.each do |volunteer| %>
-        <li><a href="/projects/<%= @project.id %>/<%= volunteer.id %>"><%= song.name %></a></li>
+        <li><a href="/projects/<%= @project.id %>/<%= volunteer.id %>"><%= volunteer.name %></a></li>
       <% end %>
     </ul>
   <% else %>
-    <p>There are no songs listed for this album yet.</p>
+    <p>There are no volunteers listed for this project yet</p>
   <% end %>
 
 
 
-<form action="/projects/<%= @project.id() %>" method="post">
+<br><br><br><form action="/projects/<%= @project.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
   <button type="submit">delete this project</button>
 </form><br>

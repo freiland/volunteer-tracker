@@ -41,11 +41,14 @@ end
 
 post ('/projects/:id') do 
   @project = Project.find(params[:id].to_i())
-  volunteer = Volunteer.new({:name => params[:name], :project_id => @project.id, :id => nil})
+  volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => @project.id, :id => nil})
   volunteer.save()
-  redirect to ('/projects/:id')
+  erb :project
 end
 
 get ('/projects/:project_id/:id') do
-  'is this working?'
+  @project = Project.find(params[:id].to_i())
+  volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => @project.id, :id => nil})
+  volunteer.save()
+  erb :volunteer
 end
