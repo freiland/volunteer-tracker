@@ -42,4 +42,22 @@ class Project
     Project.new({:title => title, :id => id})
   end
 
+  def update(attributes)
+    if (attributes.has_key?(:title)) && (attributes.fetch(:title) != nil)
+      @title = attributes.fetch(:title)
+      DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+    # elsif (attributes.has_key?(:city_name)) && (attributes.fetch(:city_name) != nil)
+    #   # binding.pry
+    #   city_name = attributes.fetch(:city_name)
+      
+    #   # time = attributes.fetch(:time)
+    #   city = DB.exec("SELECT * FROM cities WHERE lower(name) = '#{city_name.downcase}';").first
+    #   if city != nil
+    #     DB.exec("INSERT INTO train_city (city_id, train_id) VALUES (#{city['id'].to_i}, #{@id});")
+    #   end
+    end
+  end
+  
+  
+
 end
