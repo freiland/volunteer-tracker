@@ -54,19 +54,6 @@ class Project
     DB.exec("DELETE FROM projects WHERE id = #{@id};")
   end
 
-  # def volunteers 
-  #   volunteers = []
-  #   results = DB.exec("SELECT project_id FROM volunteers WHERE id = #{@id};")
-  #   # binding.pry
-  #   results.each() do |result|
-      
-  #     project_id = result.fetch("project_id").to_i
-  #     volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{project_id};")
-  #     name = volunteer.first().fetch("name")
-  #     volunteers.push(Volunteer.new({:name => name, :project_id => project_id}))
-  #   end
-  #   volunteers
-  # end
 
   def volunteers
     Volunteer.find_by_project(@id)
