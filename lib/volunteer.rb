@@ -11,4 +11,8 @@ class Volunteer
   def name 
     return @name 
   end 
+
+  def project_id 
+    return @project_id
+  end 
 end 
