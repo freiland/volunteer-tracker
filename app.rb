@@ -47,8 +47,15 @@ post ('/projects/:id') do
 end
 
 get ('/projects/:project_id/:id') do
-  @project = Project.find(params[:id].to_i())
-  volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => @project.id, :id => nil})
-  volunteer.save()
+  @volunteer = Volunteer.find(params[:id].to_i())
+  @project = Project.find(params[:project_id].to_i())
   erb :volunteer
+  
+end
+
+patch ('/projects/:project_id/:id') do 
+  @project = Project.find(params[:project_id].to_i())
+  volunteer = Volunteer.find(params[:id].to_i())
+  volunteer.update(params[:name], @project.id)
+  redirect to ('/projects/:project_id')
 end
