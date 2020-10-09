@@ -57,7 +57,7 @@ patch ('/projects/:project_id/:id') do
   @project = Project.find(params[:project_id].to_i())
   volunteer = Volunteer.find(params[:id].to_i())
   name = params[:name]
-  volunteer.update({:name => name, :project_id => @project.id, :id => @id})
+  volunteer.update({:name => name})
   redirect to ('/projects/:project_id')
 end
 
