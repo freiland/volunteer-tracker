@@ -1,14 +1,14 @@
 require 'rspec'
 require 'pg'
-require 'trains'
-require 'cities'
+require 'project'
+require 'volunteer'
 require 'pry'
 
-DB = PG.connect({:dbname => 'amtrak_test'})
+DB = PG.connect({:dbname => 'volunteer_tracker_test'})
 
 RSpec.configure do |config|
   config.after(:each) do
-    DB.exec("DELETE FROM trains *;")
-    DB.exec("DELETE FROM cities *;")
+    DB.exec("DELETE FROM projects *;")
+    DB.exec("DELETE FROM volunteers *;")
   end
 end
