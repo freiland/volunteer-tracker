@@ -9,7 +9,15 @@ class Project
 
   def title
     return @title 
-     
+  end
+
+  def id 
+    return @id
+  end
+
+  def save
+    result = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
+    @id = result.first().fetch("id").to_i
   end
 
 end
