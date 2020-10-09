@@ -20,3 +20,9 @@ post ('/') do
   project.save
   erb :projects
 end
+
+get ('/projects/:id') do
+  'on project view can rename and delete project '
+  @project = Project.find(params[:id].to_i)
+  erb :project
+end
