@@ -56,13 +56,14 @@ end
 patch ('/projects/:project_id/:id') do 
   @project = Project.find(params[:project_id].to_i())
   volunteer = Volunteer.find(params[:id].to_i())
-  volunteer.update(params[:name], @project.id)
-  redirect to ('/')
+  name = params[:name]
+  volunteer.update({:name => name, :project_id => @project.id, :id => @id})
+  redirect to ('/projects/:project_id')
 end
 
 delete ('/projects/:project_id/:id') do 
   volunteer = Volunteer.find(params[:id].to_i())
   volunteer.delete
   @project = Project.find(params[:project_id].to_i())
-  redirect to ('/')
+  redirect to ('/projects/:project_id')
 end
