@@ -20,4 +20,8 @@ class Project
     @id = result.first().fetch("id").to_i
   end
 
+  def ==(other_project)
+    self.title == other_project.title 
+  end 
+
 end
