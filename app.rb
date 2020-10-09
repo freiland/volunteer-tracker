@@ -38,3 +38,14 @@ delete ('/projects/:id') do
   @project.delete
   redirect to('/')
 end
+
+post ('/projects/:id') do 
+  @project = Project.find(params[:id].to_i())
+  volunteer = Volunteer.new({:name => params[:name], :project_id => @project.id, :id => nil})
+  volunteer.save()
+  redirect to ('/projects/:id')
+end
+
+get ('/projects/:project_id/:id') do
+  'is this working?'
+end
