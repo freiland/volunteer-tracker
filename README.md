@@ -15,7 +15,12 @@ _This application lets a user enter a project to the database. The user may then
 * _navigate to the root dir of this project_
 * _in terminal do command gem install bundler_
 * _in the terminal do commmand install bundle_
-* _in terminal do command ruby app.rb_
+* _download and install Postgres_
+* _open Postgres by running the comand postgres in terminal_
+* _in a new bash window, run psql to interact with Postgres_
+* _to run the rspec tests, navigate to the root directory and run rspec_
+* _in terminal do command ruby app.rb which will run the application_
+* _Navigate to localhost:4567 in the broswer of your choice to view the project_
 
 ## Known Bugs
 
