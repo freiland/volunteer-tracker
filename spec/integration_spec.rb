@@ -60,7 +60,7 @@ describe '/projects/:id', {:type => :feature} do
     visit "/projects/#{project_id}"
     click_link('Jasmine')
     fill_in('name', :with => 'Jane')
-    click_button('Update Volunteer')
+    click_button('submit changes')
     expect(page).to have_content('Jane')
   end
 end

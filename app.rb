@@ -46,24 +46,24 @@ post ('/projects/:id') do
   erb :project
 end
 
-get ('/projects/:project_id/:id') do
+get ('/projects/:project_id/volunteers/:id') do
   @volunteer = Volunteer.find(params[:id].to_i())
   @project = Project.find(params[:project_id].to_i())
   erb :volunteer
   
 end
 
-patch ('/projects/:project_id/:id') do 
+patch ('/projects/:project_id/volunteers/:id') do 
   @project = Project.find(params[:project_id].to_i())
   volunteer = Volunteer.find(params[:id].to_i())
   name = params[:name]
   volunteer.update({:name => name})
-  redirect to ('/projects/:project_id')
+  redirect to ("/projects/#{params[:project_id]}")
 end
 
-delete ('/projects/:project_id/:id') do 
+delete ('/projects/:project_id/volunteers/:id') do 
   volunteer = Volunteer.find(params[:id].to_i())
   volunteer.delete
   @project = Project.find(params[:project_id].to_i())
-  redirect to ('/projects/:project_id')
+  redirect to ("/projects/#{params[:project_id]}")
 end
